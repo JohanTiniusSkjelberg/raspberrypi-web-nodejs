@@ -1,0 +1,378 @@
+html,
+body {
+    height: 100%;
+    font-family: SFS, Arial, sans-serif;
+    color: #16325c;
+}
+
+body {
+    padding: 0px;
+    margin: 0 auto;
+    font-size: .8125rem;
+}
+
+:placeholder {
+    color: #54698d;
+}
+
+::-webkit-input-placeholder {
+    color: #54698d;
+}
+
+:-moz-placeholder {
+    /* Firefox 18- */
+    color: #54698d;
+    opacity: 1;
+}
+
+::-moz-placeholder {
+    /* Firefox 19+ */
+    color: #54698d;
+    opacity: 1;
+}
+
+:-ms-input-placeholder {
+    color: #54698d;
+}
+
+/* Positioning */
+
+.pr {
+    position: relative;
+}
+
+.tc {
+    text-align: center;
+}
+
+/* Floats */
+
+.fl {
+    float: left;
+}
+
+.fr {
+    float: right;
+}
+
+/* Margins */
+
+.mr8 {
+    margin-right: 8px;
+}
+
+.mb16 {
+    margin-bottom: 1rem;
+}
+
+.mb20 {
+    margin-bottom: 1.25rem;
+}
+
+.mt8 {
+    margin-top: .5rem;
+}
+
+/* Radius  */
+
+.r4 {
+    border-radius: 4px;
+}
+
+/* Padding */
+
+.p16 {
+    padding: 16px 0;
+}
+
+.pt16 {
+    padding-top: 16px;
+}
+
+/* Borders  */
+
+.bt {
+    border-top: 1px solid #F4F6F9;
+}
+
+img {
+    vertical-align: middle;
+    border: 0;
+}
+
+a {
+    text-decoration: none;
+    transition: all 0.1s;
+}
+
+a:hover,
+a:active {
+    color: #005fb2;
+}
+
+a:focus {
+    outline: thin dotted #333;
+    outline: 5px auto -webkit-focus-ring-color;
+    outline-offset: -2px;
+}
+
+/*the UL above seems to break the next element so put in a no-op*/
+
+/*the UL above seems to break the next element so put in a no-op*/
+
+
+.small {
+    font-size: .75rem;
+}
+
+.label {
+    font-size: 12px;
+    color: #54698d;
+    margin: 0 0 8px 0;
+    line-height: inherit;
+}
+
+div,
+form {
+    margin: 0px;
+    padding: 0px;
+}
+
+/* Divider */
+
+.button {
+    padding: 12px 24px;
+    border-radius: 4px;
+    border: 0;
+    font-size: .8125rem;
+    font-family: SFS, Arial, sans-serif;
+    color: white;
+    background-color: #D8DDE6;
+    cursor: pointer;
+    background-image: none !important;
+}
+
+/* Style a link to look like a button */
+
+a.secondary:primary {
+    color: #0070d2;
+}
+
+
+.primary {
+    background-color: #0070d2;
+    color: white;
+    transition: all 0.1s;
+    border: 1px solid transparent;
+}
+
+.primary:hover,
+.primary:focus {
+    background-color: #005fb2;
+}
+
+.wide {
+    width: 100%;
+}
+
+/* Inputs */
+
+input {
+    height: auto !important;
+}
+
+input.input {
+    border: 1px solid #969492;
+    border-radius: 4px;
+    border-image-source: initial;
+    border-image-slice: initial;
+    border-image-width: initial;
+    border-image-outset: initial;
+    border-image-repeat: initial;
+    background-color: #fff;
+    font-family: SFS, Arial, sans-serif;
+    box-sizing: border-box;
+    -webkit-appearance: none;
+    font-size: .8125rem;
+    transition: all 0.1s;
+}
+
+.input {
+    padding: 12px;
+}
+
+.input:focus {
+    background-color: #ffffff;
+    border: 1px solid #1589ee;
+    outline: 0;
+    box-shadow: 0 0 3px #0070D2;
+}
+
+input[type="checkbox"] {
+    width: auto;
+}
+
+/* Removes native iOS button styling */
+input[type='submit'] {
+    -webkit-appearance: none;
+}
+
+.username {
+    display: block;
+}
+
+.password {
+    display: block;
+}
+
+#wrapper {
+    padding: 20px 0px 0px 0px;
+    margin-top: 0px;
+    margin-bottom: 0px;
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 380px;
+    -moz-transition: all 0.25s;
+    -webkit-transition: all 0.25s;
+    -o-transition: all 0.25s;
+    transition: all 0.25s;
+}
+
+#wrap {
+    min-height: 100%;
+}
+
+#main {
+    overflow: auto;
+    padding-bottom: 48px;
+}
+
+/* padding is footer height plus an extra 24px of spacing */
+
+#footer {
+    position: relative;
+    margin-top: -24px;
+    /* negative value of footer height */
+    height: 24px;
+    width: 100%;
+    clear: both;
+    text-align: center;
+    font-size: .75rem;
+}
+
+#content {
+    margin: 0px auto;
+    padding: 1.25rem;
+    border-radius: 0.25rem;
+    border: 1px solid #D8DDE6;
+    color: #16325c;
+}
+
+/* Login page sections */
+
+#left {
+    display: block;
+    height: 100%;
+}
+
+/* Login form */
+
+#pwcaps {
+    font-size: 12px;
+    color: #54698d;
+    margin-top: -8px;
+}
+
+#pwcapsicon {
+    margin-right: 8px;
+}
+
+.inputgroup {
+    position: relative;
+}
+
+/* Login hint editing */
+
+/* Login hint chooser */
+
+/* Login page IDP styling */
+
+/* button should be the same height with or without a logo */
+
+@media only screen and (max-width: 1024px) {
+    #left {
+        width: 100%;
+    }
+}
+
+@media only screen and (max-width: 480px) {
+    #wrapper {
+        max-width: 100%;
+        margin-left: inherit;
+        left: inherit;
+        padding-top: 20px !important;
+    }
+
+    #content {
+        border-left: 0px;
+        border-right: 0px;
+        border-radius: 0px;
+    }
+
+    .button {
+        font-size: 1rem;
+    }
+
+    .label,
+    .small,
+    #footer {
+        font-size: .875rem;
+    }
+
+    /* font must be at least 16px to prevent auto-zooming on iOS devices */
+    input.input {
+        font-size: 1rem;
+    }
+}
+
+@media only screen and (min-height: 1200px) {
+    #wrapper {
+        padding-top: 240px;
+    }
+}
+
+@media only screen and (max-height: 1200px) {
+    #wrapper {
+        padding-top: 180px;
+    }
+}
+
+@media only screen and (max-height: 1000px) {
+    #wrapper {
+        padding-top: 140px;
+    }
+}
+
+@media only screen and (max-height: 900px) {
+    #wrapper {
+        padding-top: 100px;
+    }
+}
+
+@media only screen and (max-height: 736px) {
+    #wrapper {
+        padding-top: 60px;
+    }
+}
+
+@media only screen and (max-height: 670px) {
+    #wrapper {
+        padding-top: 40px;
+    }
+}
+
+@media only screen and (max-height: 610px) {
+    #wrapper {
+        padding-top: 20px;
+    }
+}
