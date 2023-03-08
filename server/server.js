@@ -4,11 +4,14 @@ if (process.env.NODE_ENV !== 'production') {
 
 const express = require("express")
 const app = express()
+app.use(express.static('public'))
 const bcrypt = require("bcrypt")
 const passport = require('passport')
 const flash = require('express-flash')
 const session = require('express-session')
 const initializePassport = require('./passport-config')
+const axios = require('axios')
+const api = require('./src/routes/rapidapi.js')
 
 initializePassport(
     passport, 
@@ -37,6 +40,7 @@ const users = []
 // })
 
 app.get('/', (req, res) => {
+    api.searchRecipe()
     res.render('index.ejs')
 })
 app.get('/users',(req, res) => {
@@ -88,4 +92,7 @@ function checkNotAuthenticated(req, res, next) {
     }
     next()
 }
+
+// api.getMeals()
+
 app.listen(3000)
