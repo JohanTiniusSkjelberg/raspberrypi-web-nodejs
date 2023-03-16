@@ -174,6 +174,4 @@ function searchRecipe(Query, sort, sort_dir) {
 module.exports = { getMeals, getRecipe, searchRecipe }
 
 
-searchRecipe()
-// getMealsWeek()
-// getRecipe()
+// searchRecipe()

@@ -1,7 +1,12 @@
+const PORT = process.env.PORT ?? 8000
+
+// if you are not developing use the secret key from file
 if (process.env.NODE_ENV !== 'production') {
-    require('dotenv').config()
+    require('dotenv').config();
+
 }
 
+// importing all the packages for express, login and hashing
 const express = require("express")
 const app = express()
 app.use(express.static('public'))
@@ -12,13 +17,16 @@ const session = require('express-session')
 const initializePassport = require('./passport-config')
 const axios = require('axios')
 const api = require('./src/routes/rapidapi.js')
-
+const pool = require('./db')
+const cors = require('cors')
+// function says it
 initializePassport(
     passport, 
     email => {return users.find(user => user.email === email)},
     id => {return users.find(user => user.id === id)}
     )
 
+app.use(cors())
 app.use(express.static("public"));
 app.use(express.json())
 app.use(express.urlencoded({ extended: false })); //makes form data readable
@@ -34,15 +42,21 @@ app.use(passport.session())
 const users = []
 
 // remove checkautenticated if you want to access root
+app.set('views', './src/views');
 
-// app.get('/loggedinpage',checkAuthenticated,(req,res) => {
-//     res.render('loggedin.ejs')
-// })
-
+// all routes 
 app.get('/', (req, res) => {
-    api.searchRecipe()
     res.render('index.ejs')
 })
+app.get('/db/:userEmail', async (req, res) => {
+    const { userEmail } = req.params
+    try {
+        const datebs = await pool.query('SELECT * FROM meals WHERE user_email = $1', [userEmail])
+        res.json(datebs.rows)
+    }catch(erro){
+        console.log(erro);
+    }
+});
 app.get('/users',(req, res) => {
     res.json(users)
 })
@@ -78,6 +92,26 @@ app.post('/register', checkNotAuthenticated, async (req, res) => {
 })
 
 
+app.get('/check-data', async (req, res) => {
+    let { ids }= req.query;
+    let inputArr = ids.split(',');
+    const queryText = `
+      SELECT id
+      FROM meals
+      WHERE id NOT IN ($1)
+    `;
+
+    try {
+        const result = await pool.query(queryText, [inputArr]);
+        console.log(result.rows);
+        res.json(result.rows);
+    } catch (error) {
+        console.error(error);
+        res.status(500).json({ message: 'Error checking data' });
+    }
+});
+
+// Denies access to routes if not qualified
 function checkAuthenticated(req, res, next) {
     if (req.isAuthenticated()) {
         return next()
@@ -93,6 +127,5 @@ function checkNotAuthenticated(req, res, next) {
     next()
 }
 
-// api.getMeals()
 
-app.listen(3000)
+app.listen(PORT, () => console.log(`Server running on PORT ${PORT}`));
