@@ -3,7 +3,11 @@ import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 // import NavDropdown from 'react-bootstrap/NavDropdown';
 
-export default function CollapsibleExample({ onLoginClick }) {
+export default function CollapsibleExample({ onLoginClick, onTab }) {
+
+    function handleButtonClick(tab){
+        onTab(tab);
+    }
     return (
         <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark" className="w-100">
             <Container>
@@ -11,12 +15,18 @@ export default function CollapsibleExample({ onLoginClick }) {
                 <Navbar.Toggle aria-controls="responsive-navbar-nav" />
                 <Navbar.Collapse id="responsive-navbar-nav">
                     <Nav className="me-auto">
-                        <Nav.Link href="#features">Features</Nav.Link>
+                        <Nav.Link href="#features">Meal</Nav.Link>
                         <Nav.Link href="#pricing">Pricing</Nav.Link>
                     </Nav>
                     <Nav>
-                        <Nav.Link className='pl-3' href="#deets">Register</Nav.Link>
-                        <Nav.Link onClick={onLoginClick}>
+                        <Nav.Link className='pl-3' onClick={() => {
+                            onLoginClick();
+                            handleButtonClick('tab2');
+                        }}>Register</Nav.Link>
+                        <Nav.Link onClick={() => {
+                            onLoginClick();
+                            handleButtonClick('tab1');
+                        }}>
                             Log in
                         </Nav.Link>
                     </Nav>

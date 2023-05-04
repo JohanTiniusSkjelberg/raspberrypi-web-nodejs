@@ -18,7 +18,7 @@ export default function Meal({ meal, onNextMealClick }) {
         window.open(url)
     }
     return (
-        <article>
+        <article style={{ flexGrow: 1, borderRight: '1px solid #ccc', padding: '1rem' }}>
             <button className="button-round" onClick={(event) => {
                 handleButtonClick(event);
             }}>

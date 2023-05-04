@@ -16,22 +16,19 @@ export default function MealList({ mealData }) {
     }
     return (
         <main>
-           {/* <section className='nutrients'>
-            <h1>Macros</h1>
-           </section> */}
-           <section className='meals'>
+            <section className='meals' style={{ display: 'flex', justifyContent: 'space-between', flexWrap: 'wrap', borderLeft: '1px solid #ccc' }}>
                 {mealValue.slice(0, 6).map((recipe) => {
-                return <Meal
-                key={recipe.id} 
-                meal={recipe} 
-                onNextMealClick={handleNextMealClick}
-                isLastMeal={ mealValue.length===6}
-                />
-            })}
-           </section>
-           <button onClick={handleMealprepp}>
-             Finish
-           </button>
+                    return <Meal
+                        key={recipe.id}
+                        meal={recipe}
+                        onNextMealClick={handleNextMealClick}
+                        isLastMeal={mealValue.length === 6}
+                    />
+                })}
+            </section>
+            <button onClick={handleMealprepp}>
+                Finish
+            </button>
         </main>
     );
 }

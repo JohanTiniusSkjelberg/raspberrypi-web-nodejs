@@ -13,9 +13,9 @@ import {
 }
     from 'mdb-react-ui-kit';
 
-export default function App() {
+export default function App({ tabs }) {
 
-    const [justifyActive, setJustifyActive] = useState('tab1');
+    const [justifyActive, setJustifyActive] = useState(tabs);
 
     const handleJustifyClick = (value) => {
         if (value === justifyActive) {
@@ -125,4 +125,3 @@ export default function App() {
         </MDBContainer>
     );
 }
-
